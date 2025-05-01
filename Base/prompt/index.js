@@ -11,7 +11,7 @@ else
 	alert("Неверно");
 
 let answer3 = prompt("Сколько будет 2 в 5-й степени?");
-if (answer1 == 32)
+if (answer3 == 32)
 	alert("Верно");
 else
 	alert("Неверно");
