@@ -1,6 +1,6 @@
 
 function getDivisorsCount(n) {
-  if (n === undefined || Number(n) === NaN) {
+  if (n === undefined || isNaN(n)) {
     return NaN;
   }
 
