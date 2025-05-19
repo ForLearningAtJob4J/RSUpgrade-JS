@@ -18,5 +18,5 @@ const users = [
 
 const onlineUsers = users.filter((v, i, a) => v.status === 'online');
 
-console.log(`Сейчас в online следующие пользователи: ${onlineUsers.reduce((acc, cur) => acc += cur.username + ', ', '').slice(0, -2)}`);
+alert(`Сейчас в online следующие пользователи: ${onlineUsers.reduce((acc, cur) => acc += cur.username + ', ', '').slice(0, -2)}`);
 
