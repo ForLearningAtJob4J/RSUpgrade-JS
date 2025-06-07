@@ -18,8 +18,8 @@ const tasks = [
 const tasksRoot = document.querySelector('.tasks-list');
 
 function insertTask(task) {
-    const newTaskElement = document.createElement('div');
-    newTaskElement.innerHTML = `
+
+    tasksRoot.insertAdjacentHTML('beforeend', `
     <div class="task-item" data-task-id="${task.id}">
         <div class="task-item__main-container">
             <div class="task-item__main-content">
@@ -36,8 +36,7 @@ function insertTask(task) {
             </button>
         </div>
     </div>
-    `;
-    tasksRoot.insertAdjacentElement('beforeend', newTaskElement);
+    `);
 }
 
 tasks.forEach(e => insertTask(e));
