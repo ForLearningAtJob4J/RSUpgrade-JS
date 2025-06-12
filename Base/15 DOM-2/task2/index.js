@@ -28,11 +28,11 @@ function submitCreateTask(event) {
 
 function validate(text) {
     if (!text) {
-        return 'Пустое значение!';
+        return 'Название задачи не должно быть пустым';
     }
 
     if (findTaskByText(text)) {
-        return 'Задача уже есть!';
+        return 'Задача с таким названием уже существует.';
     }
 
     return null;
