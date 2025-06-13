@@ -21,7 +21,6 @@ function addDeleteButtonHandler() {
     tasksDOMRoot.addEventListener('click', (e) => {
         if (e.target.classList.contains('delete-button')) {
             taskIdToDelete = e.target.closest('.task-item').dataset.taskId;
-            console.log('delete-button', taskIdToDelete);
             showModal();
         }
     });
@@ -34,8 +33,6 @@ function addModalDialogButtonHandler() {
         }
 
         if (e.target.classList.contains('delete-modal__confirm-button')) {
-            console.log('confirm-button', taskIdToDelete);
-
             deleteTasksByIdsFromDOM(deleteTaskById(taskIdToDelete).map(t => t.id));
             closeModal();
         }
