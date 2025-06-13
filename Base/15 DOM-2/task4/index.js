@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded',
         addModalDialogButtonHandler();
         document.querySelector('.create-task-block').addEventListener('submit', submitCreateTask);
         document.querySelector('.create-task-block__input').addEventListener('input', () => document.querySelector('.error-message-block')?.remove());
-        document.addEventListener('keydown', toggleThemeHandler);
+        document.addEventListener('keydown', documentKeyDownHandler);
     }
 );
 
-function toggleThemeHandler(e) {
+function documentKeyDownHandler(e) {
     //console.log(e);
     if (e.key === 'Tab') {
         toggleTheme();
