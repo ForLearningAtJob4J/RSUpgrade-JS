@@ -39,8 +39,7 @@ export function addTaskToDOM(task) {
 }
 
 export function deleteTasksByIdsFromDOM(tasksIds) {
-    console.log(tasksIds);
-    tasksIds.forEach(taskId => document.querySelector(`[data-task-id="${taskId}"]`).remove());
+    tasksIds.forEach(taskId => document.querySelector(`[data-task-id="${taskId}"]`)?.remove());
 }
 
 export function addModalWindowToDOM() {

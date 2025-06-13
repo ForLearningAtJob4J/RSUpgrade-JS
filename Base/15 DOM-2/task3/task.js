@@ -1,4 +1,4 @@
-export let tasks = [
+export const tasks = [
     {
         id: '1138465078061',
         completed: false,
