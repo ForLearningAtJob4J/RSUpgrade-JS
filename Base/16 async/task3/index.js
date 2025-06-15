@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getFastestLoadedPhoto(ids) {
-    const loader = document.querySelector('#loader');
-    setLoaderVisibility(true, loader);
+    setLoaderVisibility(true);
 
     Promise.race(ids.map(id =>
         fetch(`https://api.slingacademy.com/v1/sample-data/photos/${id}`)
@@ -14,14 +13,15 @@ function getFastestLoadedPhoto(ids) {
                 }
                 return response.json();
             })
-            .then(data => data.photo)))
+            .then(data => data.photo)
+            .catch(error => console.log(error))))
         .then(fastest => renderPhoto(fastest))
         .catch(error => console.log(error))
-        .finally(setLoaderVisibility(false, loader));
-
+        .finally(setLoaderVisibility(false));
 }
 
-function setLoaderVisibility(show, loader) {
+function setLoaderVisibility(show) {
+    const loader = document.querySelector('#loader');
     if (show) {
         loader.removeAttribute('hidden');
     } else {
@@ -35,7 +35,7 @@ function renderPhoto(photo) {
     const li = document.createElement("li");
     li.innerHTML = `
         <li class="photo-item">
-        <img class="photo-item__image" src="${photo.url}">
+        <img class="photo-item__image" src="${photo ? photo.url : 'https://habrastorage.org/r/w1560/getpro/habr/upload_files/27d/4c0/107/27d4c01077eda339e3ddf69ae8c0827c.jpg'}">
         <h3 class="photo-item__title">
             accusamus beatae ad facilis cum similique qui sunt
         </h3>

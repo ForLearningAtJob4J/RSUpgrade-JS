@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    setLoaderVisibility(true);
     setTimeout(() => { // для имитации долгой загрузки
         getUsersByIds([5, 6, 2, 1]);
     }, 1500);
 });
 
 function getUsersByIds(iDs) {
-    const loader = document.querySelector('#loader');
-    setLoaderVisibility(true, loader);
-
     Promise.all(
         iDs.map(e => fetch(`https://jsonplaceholder.typicode.com/users/${e}`
         )))
@@ -21,10 +19,11 @@ function getUsersByIds(iDs) {
         })
         .then(users => renderListItems(users))
         .catch(error => console.log(error))
-        .finally(setLoaderVisibility(false, loader));
+        .finally(setLoaderVisibility(false));
 }
 
-function setLoaderVisibility(show, loader) {
+function setLoaderVisibility(show) {
+    const loader = document.querySelector('#loader');
     if (show) {
         loader.removeAttribute('hidden');
     } else {

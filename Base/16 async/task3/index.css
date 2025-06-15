@@ -4,7 +4,6 @@
     --text-color: #444;
     --circle-background: #8FD4C1;
     --border-color: #ffffff;
-    --selected-circle-background: lightgreen;
 }
 
 body {
@@ -37,7 +36,6 @@ body {
 
 #data-container a:hover:before {
     transform: rotate(360deg);
-    background: var(--selected-circle-background);
 }
 
 #data-container a:before {

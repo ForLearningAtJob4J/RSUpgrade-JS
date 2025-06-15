@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const dataContainer = document.querySelector('#data-container');
-    const loader = document.querySelector('#loader');
 
-    setLoaderVisibility(true, loader);
+    setLoaderVisibility(true);
     setTimeout(() => { // для имитации долгой загрузки
         fetch('https://jsonplaceholder.typicode.com/users'
         ).then(response => {
@@ -12,11 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         }).then((users) => { renderListItems(users, dataContainer) }
         ).catch(error => console.error(error)
-        ).finally(setLoaderVisibility(false, loader));
+        ).finally(setLoaderVisibility(false));
     }, 1500);
 });
 
-function setLoaderVisibility(show, loader) {
+function setLoaderVisibility(show) {
+    const loader = document.querySelector('#loader');
     if (show) {
         loader.removeAttribute('hidden');
     } else {
