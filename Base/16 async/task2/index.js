@@ -19,7 +19,7 @@ function getUsersByIds(iDs) {
             });
             return Promise.all(results);
         })
-        .then(users => renderListItems(users))
+        .then(users => renderPhoto(users))
         .catch(error => console.log(error))
         .finally(setLoaderVisibility(false, loader));
 }
@@ -32,7 +32,7 @@ function setLoaderVisibility(show, loader) {
     }
 }
 
-function renderListItems(users) {
+function renderPhoto(users) {
     const dataContainer = document.querySelector('#data-container');
 
     for (const user of users) {
