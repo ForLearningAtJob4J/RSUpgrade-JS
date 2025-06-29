@@ -1,14 +1,14 @@
 # Зависимости
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 
 # Тестирование
-/coverage
+coverage
 
 # Продакшн-сборка
-/build
-/dist
+build
+dist
 
 # Локальные файлы
 .env.local
